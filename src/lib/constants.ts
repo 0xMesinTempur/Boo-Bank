@@ -22,13 +22,13 @@ export const APP_URL: string = process.env.NEXT_PUBLIC_URL!;
  * The name of the mini app as displayed to users.
  * Used in titles, headers, and app store listings.
  */
-export const APP_NAME: string = 'Starter Kit';
+export const APP_NAME: string = 'Boo-Bank';
 
 /**
  * A brief description of the mini app's functionality.
  * Used in app store listings and metadata.
  */
-export const APP_DESCRIPTION: string = 'A demo of the Neynar Starter Kit';
+export const APP_DESCRIPTION: string = 'Claim USDC rewards every hour in this fun ghost-themed game!';
 
 /**
  * The primary category for the mini app.
@@ -102,7 +102,7 @@ export const APP_WEBHOOK_URL: string =
  * When false, wallet functionality is completely hidden from the UI.
  * Useful for mini apps that don't require wallet integration.
  */
-export const USE_WALLET: boolean = false;
+export const USE_WALLET: boolean = true;
 
 /**
  * Flag to enable/disable analytics tracking.

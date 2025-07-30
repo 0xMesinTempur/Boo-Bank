@@ -20,22 +20,22 @@ export const Footer: React.FC<FooterProps> = ({ activeTab, setActiveTab, showWal
         <span className="text-xs mt-1">Home</span>
       </button>
       <button
-        onClick={() => setActiveTab(Tab.Actions)}
+        onClick={() => setActiveTab(Tab.Leaderboard)}
         className={`flex flex-col items-center justify-center w-full h-full ${
-          activeTab === Tab.Actions ? 'text-primary dark:text-primary-light' : 'text-gray-500 dark:text-gray-400'
+          activeTab === Tab.Leaderboard ? 'text-primary dark:text-primary-light' : 'text-gray-500 dark:text-gray-400'
         }`}
       >
-        <span className="text-xl">⚡</span>
-        <span className="text-xs mt-1">Actions</span>
+        <span className="text-xl">🏆</span>
+        <span className="text-xs mt-1">Leaderboard</span>
       </button>
       <button
-        onClick={() => setActiveTab(Tab.Context)}
+        onClick={() => setActiveTab(Tab.Info)}
         className={`flex flex-col items-center justify-center w-full h-full ${
-          activeTab === Tab.Context ? 'text-primary dark:text-primary-light' : 'text-gray-500 dark:text-gray-400'
+          activeTab === Tab.Info ? 'text-primary dark:text-primary-light' : 'text-gray-500 dark:text-gray-400'
         }`}
       >
-        <span className="text-xl">📋</span>
-        <span className="text-xs mt-1">Context</span>
+        <span className="text-xl">ℹ️</span>
+        <span className="text-xs mt-1">Info</span>
       </button>
       {showWallet && (
         <button

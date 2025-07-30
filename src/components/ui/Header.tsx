@@ -22,7 +22,7 @@ export function Header({ neynarUser }: HeaderProps) {
         className="mt-4 mb-4 mx-4 px-2 py-2 bg-gray-100 dark:bg-gray-800 rounded-lg flex items-center justify-between border-[3px] border-double border-primary"
       >
         <div className="text-lg font-light">
-          Welcome to {APP_NAME}!
+          {/* Welcome message removed */}
         </div>
         {context?.user && (
           <div 
@@ -59,13 +59,6 @@ export function Header({ neynarUser }: HeaderProps) {
                   <p className="text-xs text-gray-500 dark:text-gray-500">
                     FID: {context.user.fid}
                   </p>
-                  {neynarUser && (
-                    <>
-                      <p className="text-xs text-gray-500 dark:text-gray-500">
-                        Neynar Score: {neynarUser.score}
-                      </p>
-                    </>
-                  )}
                 </div>
               </div>
             </div>

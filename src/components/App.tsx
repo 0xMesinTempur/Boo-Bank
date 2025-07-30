@@ -2,18 +2,16 @@
 
 import { useEffect } from "react";
 import { useMiniApp } from "@neynar/react";
-import { Header } from "~/components/ui/Header";
-import { Footer } from "~/components/ui/Footer";
-import { HomeTab, ActionsTab, ContextTab, WalletTab } from "~/components/ui/tabs";
+import { HomeTab, WalletTab, LeaderboardTab, InfoTab } from "~/components/ui/tabs";
 import { USE_WALLET } from "~/lib/constants";
 import { useNeynarUser } from "../hooks/useNeynarUser";
 
 // --- Types ---
 export enum Tab {
   Home = "home",
-  Actions = "actions",
-  Context = "context",
   Wallet = "wallet",
+  Leaderboard = "leaderboard",
+  Info = "info",
 }
 
 export interface AppProps {
@@ -21,9 +19,9 @@ export interface AppProps {
 }
 
 /**
- * App component serves as the main container for the mini app interface.
+ * App component serves as the main container for the Boo-Bank game interface.
  * 
- * This component orchestrates the overall mini app experience by:
+ * This component orchestrates the overall game experience by:
  * - Managing tab navigation and state
  * - Handling Farcaster mini app initialization
  * - Coordinating wallet and context state
@@ -31,26 +29,26 @@ export interface AppProps {
  * - Rendering the appropriate tab content based on user selection
  * 
  * The component integrates with the Neynar SDK for Farcaster functionality
- * and Wagmi for wallet management. It provides a complete mini app
+ * and Wagmi for wallet management. It provides a complete game
  * experience with multiple tabs for different functionality areas.
  * 
  * Features:
- * - Tab-based navigation (Home, Actions, Context, Wallet)
+ * - Tab-based navigation (Home, Wallet, Leaderboard, Info)
  * - Farcaster mini app integration
  * - Wallet connection management
  * - Error handling and display
  * - Loading states for async operations
  * 
  * @param props - Component props
- * @param props.title - Optional title for the mini app (defaults to "Neynar Starter Kit")
+ * @param props.title - Optional title for the mini app (defaults to "Boo-Bank")
  * 
  * @example
  * ```tsx
- * <App title="My Mini App" />
+ * <App title="Boo-Bank" />
  * ```
  */
 export default function App(
-  { title }: AppProps = { title: "Neynar Starter Kit" }
+  { title }: AppProps = { title: "Boo-Bank" }
 ) {
   // --- Hooks ---
   const {
@@ -100,23 +98,11 @@ export default function App(
         paddingRight: context?.client.safeAreaInsets?.right ?? 0,
       }}
     >
-      {/* Header should be full width */}
-      <Header neynarUser={neynarUser} />
-
-      {/* Main content and footer should be centered */}
-      <div className="container py-2 pb-20">
-        {/* Main title */}
-        <h1 className="text-2xl font-bold text-center mb-4">{title}</h1>
-
-        {/* Tab content rendering */}
-        {currentTab === Tab.Home && <HomeTab />}
-        {currentTab === Tab.Actions && <ActionsTab />}
-        {currentTab === Tab.Context && <ContextTab />}
-        {currentTab === Tab.Wallet && <WalletTab />}
-
-        {/* Footer with navigation */}
-        <Footer activeTab={currentTab as Tab} setActiveTab={setActiveTab} showWallet={USE_WALLET} />
-      </div>
+      {/* Tab content rendering */}
+      {currentTab === Tab.Home && <HomeTab activeTab={currentTab as Tab} setActiveTab={setActiveTab} />}
+      {currentTab === Tab.Wallet && <WalletTab />}
+      {currentTab === Tab.Leaderboard && <LeaderboardTab activeTab={currentTab as Tab} setActiveTab={setActiveTab} />}
+      {currentTab === Tab.Info && <InfoTab activeTab={currentTab as Tab} setActiveTab={setActiveTab} />}
     </div>
   );
 }
